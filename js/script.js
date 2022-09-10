@@ -24,7 +24,6 @@ $(document).ready(function(){
         $(this).find(".txt01").text($arr_01[n][1]);
         $(this).find(".txt02").text($arr_01[n][2]);
         $(this).find(".txt03").text($arr_01[n][3]);
-        // $(this).find("p").text($arr_01[n][1]);
     });
     
     $("#PF_main .box button").click(function(){
