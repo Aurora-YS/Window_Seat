@@ -13,6 +13,25 @@ ul, ol{margin: 0; padding: 0; list-style: none;}
 a{text-decoration: none;}
 
 
+/* 스크롤 안보이게 하기 */
+
+body{
+    -ms-overflow-style: none;
+}
+    
+::-webkit-scrollbar {
+    display: none;
+}
+   
+#PF_main .dark_bg{
+    -ms-overflow-style: none;
+}
+#PF_main .dark_bg::-webkit-scrollbar{
+    display:none;
+}
+
+/***********************/
+
 #PF_main{
     width: 100%;
     height: 100vh;
@@ -22,7 +41,7 @@ a{text-decoration: none;}
     align-items: center;
     text-align: center;
     position: relative;
-    background-image: url("../img/window_photo.jpg");
+    background-image: url("../img/aisle_photo.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,8 +51,11 @@ a{text-decoration: none;}
     position: fixed;
     width: 100%;
     height: 100vh;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.5);
     z-index: 3;
     transition: transform 0.5s;
@@ -41,20 +63,36 @@ a{text-decoration: none;}
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
-#PF_main .logo{}
-#PF_main .logo img{
-    display: block;
-    width: 120px;
-    padding-bottom: 45px;
+.menu-fixed{
+    position: relative;
 }
-#PF_main .box{
+
+#PF_main #t_01{}
+#PF_main #t_01 .logo{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#PF_main .box button{
+#PF_main #t_01 .logo img{
+    display: block;
+    width: 120px;
+    padding-bottom: 45px;
+}
+#PF_main #t_01 .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#PF_main #t_01 .box .s_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#PF_main #t_01 .box .s_btn button{
     display:block;
     padding: 10px 15px;
     margin: 0 20px;
@@ -71,25 +109,48 @@ a{text-decoration: none;}
     text-transform: uppercase;
 }
 
-#PF_main .box button:hover {
+#PF_main #t_01 .box .s_btn button:hover {
     color: #fc0;
     box-shadow: 0 80px 0 0 rgba(255,255,255,0.25) inset, 
     0 -80px 0 0 rgba(255,255,255,0.25) inset;
 }
-#PF_main .box button.open {
+#PF_main #t_01 .box .s_btn button.open {
     color: #fc0;
     transition: color 0.3s;
 }
 
-#PF_main .contents{
-    padding: 30px 80px;
+#PF_main #t_01 .cover{}
+#PF_main #t_01 .cover .contents{
+    width: 100%;
+    padding: 30px 50px;
     display: none;
     color: #fff;
 }
-#PF_main .contents h4{
+#PF_main #t_01 .cover .contents h4{
     font-size: 22px;
     padding: 20px 0 30px 0;
 }
-#PF_main .contents p{
+#PF_main #t_01 .cover .contents p{
     font-size: 17px;
+}
+
+@media (max-width:959px){
+    #PF_main #t_01 .cover .contents{
+        padding: 30px 50px;
+    }
+
+}
+@media (max-width:767px){
+    #PF_main #t_01 .cover .contents{
+        width: 300px;
+        padding: 30px 0 130px 0;
+    }
+
+   .menu-fixed {
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
 }
